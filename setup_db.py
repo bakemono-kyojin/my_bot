@@ -12,7 +12,8 @@ c.execute('''
         category TEXT NOT NULL,
         price REAL NOT NULL,
         photo_url TEXT,
-        description TEXT
+        description TEXT,
+        quantity INTEGER NOT NULL
     )
 ''')
 
@@ -23,6 +24,40 @@ c.execute('''
         user_id INTEGER NOT NULL,
         product_id INTEGER NOT NULL,
         quantity INTEGER NOT NULL
+    )
+''')
+
+# Create table for users
+c.execute('''
+    CREATE TABLE users (
+        id INTEGER PRIMARY KEY,
+        telegram_id INTEGER NOT NULL,
+        role TEXT NOT NULL
+    )
+''')
+
+# Create table for FAQs
+c.execute('''
+    CREATE TABLE faqs (
+        id INTEGER PRIMARY KEY,
+        question TEXT NOT NULL,
+        answer TEXT NOT NULL
+    )
+''')
+
+# Create table for About
+c.execute('''
+    CREATE TABLE about (
+        id INTEGER PRIMARY KEY,
+        content TEXT NOT NULL
+    )
+''')
+
+# Create table for DeliveryMethod
+c.execute('''
+    CREATE TABLE delivery_methods (
+        id INTEGER PRIMARY KEY,
+        content TEXT NOT NULL
     )
 ''')
 
